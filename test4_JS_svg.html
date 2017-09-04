@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 动态创建SVG节点 </title>
+    <script src="./jquery/jquery.min.js"></script>
+</head>
+<body>
+<svg id="createSVG"   xmlns="http://www.w3.org/2000/svg" version="1.1" width="400px" height="400px"></svg>
+</body>
+<script>
+    function onLoad() {
+        let svg = document.getElementById("createSVG");
+        let  rectObj = document.createElementNS("http://www.w3.org/2000/svg","rect");
+        rectObj.setAttribute("width",200);
+        rectObj.setAttribute("height",100);
+        rectObj.setAttribute("style","fill:rgb(0,0,255);stroke-width:1;stroke:red");
+
+        let circleObj  = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        circleObj.setAttribute("cx",300);
+        circleObj.setAttribute("cy",50);
+        circleObj.setAttribute("r",50);
+        circleObj.setAttribute("fill","black");
+
+        svg.appendChild(rectObj);
+        svg.appendChild(circleObj);
+       // $("#createSVG").append(rectObj).append(circleObj);
+
+    }
+    window.onload = onLoad();
+</script>
+</html>
+

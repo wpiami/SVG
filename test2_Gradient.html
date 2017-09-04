@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG渐变</title>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800px" height="800px">
+    <defs>
+        <!--线性渐变-->
+        <linearGradient id="test1" x1="0" y1="0" x2="1" y2="0"><!--当y1和y2相等，而x1和x2不同时，可创建水平渐变-->
+            <stop offset="0%" stop-color="red"></stop>
+            <stop offset="50%" stop-color="black"></stop>
+            <stop offset="100%" stop-color="blue"></stop>
+        </linearGradient>
+        <linearGradient id="test2" x1="0" y1="0" x2="0" y2="1"><!--当y1和y2相等，而x1和x2不同时，可创建水平渐变-->
+            <stop offset="0%" stop-color="green"></stop>
+            <stop offset="50%" stop-color="yellow"></stop>
+            <stop offset="100%" stop-color="pink"></stop>
+        </linearGradient>
+        <!--径向渐变（放射性渐变）-->
+        <radialGradient id="test3" cx="50%" cy="50%" r="50%"  fx="30%" fy="30%"><!--CX，CY和r属性定义的最外层圆和Fx和Fy定义的最内层圆-->
+            <stop offset="0%" stop-color="pink"></stop>
+            <stop offset="50%" stop-color="yellow"></stop>
+            <stop offset="100%" stop-color="purple"></stop>
+        </radialGradient>
+    </defs>
+    <rect x="0" y="0" rx="10" ry="10" width="200px" height="180px" fill="url(#test1)"></rect>
+    <rect x="210" y="0"  rx="10" ry="10"  width="200px" height="180px" fill="url(#test2)"></rect>
+    <text font-size="25" font-family="Verdana" x="50" y="100" fill="url(#test2)">水平渐变</text>
+    <text  font-size="25" font-family="Verdana" x="250" y="100" fill="url(#test1)">垂直渐变</text><!--<text> 元素是用来添加一个文本-->
+
+    <ellipse cx="100" cy="250" rx="100" ry="50" fill="url(#test3)"></ellipse>
+    <text font-size="25" font-family="Verdana" x="50" y="320" fill="url(#test3)">径向渐变</text>
+</svg>
+</body>
+</html>

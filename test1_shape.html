@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG 形状</title>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800px " height="900px">
+    <!--矩形-->
+    <rect x="20" y="20" rx="20" ry="20"  style="width:200px; height:120px; fill: pink; stroke: rgb(0,0,0); stroke-width: 2px; fill-opacity: 0.5;stroke-opacity: 0.4;  /*opacity设置整个元素的不透明度*/   "
+    ></rect>
+    <!--圆-->
+    <circle cx="300" cy="80" r="50" style=" fill:blue ;stroke:pink ;stroke-width:2"
+    ></circle>
+    <!--椭圆-->
+    <ellipse cx="500" cy="80" rx="100" ry="50" fill="yellow" stroke-width="2px" stroke="black">
+    </ellipse>
+    <!--直线-->
+    <line x1="0" y1="190" x2="200" y2="300" stroke="blue" stroke-width="2px"><!--x1,y1表示在x,y轴的开始，x2,y2表示在x,y轴的结束-->
+    </line>
+    <!--多边形-->
+    <polygon points="300 300,400 250,290 160" fill="lime" stroke="purple" stroke-width="2px">
+    </polygon>
+    <polygon points="360,400 400,530 470,500 523,434" style="fill:lime;stroke:purple;stroke-width:1">
+    </polygon>
+    <polygon points="100,410 40,580 190,460 10,460 160,580" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;">
+    </polygon>                                          <!--points 定义多边形每个角的x和y坐标，多个角坐标用空格区分，一个角的x和y坐标用，隔开-->
+    <!--曲线-->
+    <polyline points="620,40 660,40 660,80 700,80 700,120 740,120" stroke="red" stroke-width="3    " fill="none">
+    </polyline>
+    <!--路径-->
+    <path  d="M620 180 L600 300 L700 300 Z"><!--d：一个点集数列以及其它关于如何绘制路径的信息-->
+        <!--M：Move TO ，M命令经常出现在路径的开始处，用来指明从何处开始画。只会移动画笔，但不会在两点之间画线
+                真正画线的有三个命令，最常用的是 Line to命令，另外两个是H，绘制平行线。V，绘制垂直线。
+               L： Line to，两个参数x轴和y轴坐标
+               Z：Z命令会从当前点画一条直线到路径的起点（不区分大小写）
+               以上所有命令均允许小写字母。大写表示绝对定位，小写表示相对定位。
+               path是最常用的命令
+        -->
+    </path>
+
+    <defs><!--表示定义，在defs标签里可以定义样式，渐变，滤镜等-->
+        <style type="text/css">
+            #myRect{
+                fill: yellow;
+                stroke: blue;
+            }
+        </style>
+        <path id="path1" d="M300,600 a1,10 0,0 100,0" ></path>
+    </defs>
+    <rect x="0" y="600" width="200" height="180" id="myRect"></rect>
+
+    <text x="10" y="100" style="fill:red;">
+        <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+    </text>
+
+
+</svg>
+</body>
+</html>

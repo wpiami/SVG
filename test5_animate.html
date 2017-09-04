@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG动画</title>
+</head>
+<body>
+
+<!--animate-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200px" height="100px">
+    <rect x="10" y="10" width="100px" height="100px" fill="pink">
+        <animate attributeType="XML" attributeName="x" from="-100" to="120" dur="10s" repeatCount="indefinite">
+        </animate>
+    </rect>
+</svg>
+
+<!--animateMotion-->
+<svg width="300" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect x="1" y="1" width="498" height="298" fill="none" stroke="blue" stroke-width="2"></rect>
+    <!-- 画出蓝色运动路径的轮廓，以及开始、中间和结束时的三个小圆圈。 -->
+    <path id="path1" d="M100,250 C 100,50 400,50 400,250" fill="none" stroke="blue" stroke-width="7.06"></path>
+    <circle cx="100" cy="250" r="17.64" fill="blue"></circle>
+    <circle cx="250" cy="100" r="17.64" fill="blue"></circle>
+    <circle cx="400" cy="250" r="17.64" fill="blue"></circle>
+
+    <!-- 这里有一个三角形，它将在运动路径上移动。它是用垂直方向定义的，三角形的底部正好在原点上方。 -->
+    <path d="M-25,-12.5 L25,-12.5 L 0,-87.5 z"
+          fill="yellow" stroke="red" stroke-width="7.06">
+        <!-- 定义运动路径动画-->
+        <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+            <mpath xlink:href="#path1"></mpath>
+        </animateMotion>
+    </path>
+</svg>
+<svg width="200px" height="300px" viewBox="300  100 400 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!--运动轨迹-->
+    <path id="path2" d="M 300,100 L 300,100 800,100" fill="none" stroke="purple" stroke-width="3px"></path>
+    <!--运动物体形状-->
+    <circle r="20" fill="yellow" stroke="red" stroke-width="7.06">
+        <!--运动效果-->
+        <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
+            <mpath xlink:href="#path2"></mpath>
+        </animateMotion>
+    </circle>
+</svg>
+
+<!--animateTransform-->
+<svg width="120" height="120" viewBox="0 0 120 120"  xmlns="http://www.w3.org/2000/svg" version="1.1"  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <polygon points="60,30 90,90 30,90">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 60 70"
+                          to="360 60 70"
+                          dur="10s"
+                          repeatCount="indefinite"></animateTransform>
+    </polygon>
+</svg>
+<svg width="200" height="200" viewBox="0 0  200 200"  xmlns="http://www.w3.org/2000/svg" version="1.1" >
+    <polygon points="60,30 90,90 30,90">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="scale"
+                          from="0.25"
+                          to="1"
+                          dur="2s"
+                          repeatCount="indefinite"></animateTransform>
+    </polygon>
+</svg>
+
+</body>
+</html>
